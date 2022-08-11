@@ -23,6 +23,12 @@ class Chart extends StatelessWidget {
     });
   }
 
+  double get weeklyTotal {
+    return groupedTransactionValues.fold(0.0, (sum, item) {
+      return sum + item['amount'];
+    });
+  }
+
   const Chart({required this.recentTransactions, Key? key}) : super(key: key);
 
   @override
@@ -35,7 +41,8 @@ class Chart extends StatelessWidget {
         return ChartBar(
           label: data['day'],
           spendingAmount: data['amount'],
-          spendingPctOfTotal: data['amount'] / 100,
+          spendingPctOfTotal:
+              weeklyTotal == 0.0 ? 0.0 : data['amount'] / weeklyTotal,
         );
       }).toList()),
     );
