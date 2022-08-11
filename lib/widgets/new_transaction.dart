@@ -29,7 +29,10 @@ class _NewTransactionState extends State<NewTransaction> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 5,
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15.0),
+      ),
       child: Container(
         margin: const EdgeInsets.all(10),
         padding: const EdgeInsets.all(10),

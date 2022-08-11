@@ -14,13 +14,18 @@ class ChartBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      Text('\$${spendingAmount.toStringAsFixed(0)}'),
+      FittedBox(
+          child: Text('\$${spendingAmount.toStringAsFixed(0)}',
+              style: const TextStyle(
+                fontSize: 10,
+                fontFamily: 'Open Sans',
+              ))),
       const SizedBox(
         height: 4,
       ),
       SizedBox(
-        height: 60,
-        width: 10,
+        height: 70,
+        width: 15,
         child: Stack(children: [
           Container(
             decoration: BoxDecoration(
@@ -33,9 +38,18 @@ class ChartBar extends StatelessWidget {
               child: Container(
                   decoration: BoxDecoration(
                       color: Theme.of(context).primaryColor,
-                      border: Border.all(color: Colors.grey, width: 1.0))))
+                      border: Border.all(color: Colors.grey, width: 1.0),
+                      borderRadius: BorderRadius.circular(20))))
         ]),
-      )
+      ),
+      const SizedBox(
+        height: 4,
+      ),
+      Text(label.toUpperCase(),
+          style: const TextStyle(
+            fontSize: 10,
+            fontFamily: 'Open Sans',
+          ))
     ]);
   }
 }
