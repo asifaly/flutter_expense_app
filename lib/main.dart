@@ -30,8 +30,10 @@ class MyHomePage extends StatelessWidget {
     Transaction(
         id: 't2', title: 'new phone', amount: 99.99, date: DateTime.now()),
   ];
-  String titleInput = "";
-  String amountInput = "";
+  // String titleInput = "";
+  // String amountInput = "";
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -55,20 +57,23 @@ class MyHomePage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       TextField(
-                          decoration: const InputDecoration(labelText: 'Title'),
-                          onChanged: (value) {
-                            titleInput = value;
-                          }),
+                        decoration: const InputDecoration(labelText: 'Title'),
+                        controller: titleController,
+                        // onChanged: (value) {
+                        //   titleInput = value;
+                        // }
+                      ),
                       TextField(
-                          decoration:
-                              const InputDecoration(labelText: 'Amount'),
-                          onChanged: (value) {
-                            amountInput = value;
-                          }),
+                        decoration: const InputDecoration(labelText: 'Amount'),
+                        controller: amountController,
+                        // onChanged: (value) {
+                        //   amountInput = value;
+                        // }
+                      ),
                       FlatButton(
                           onPressed: () {
-                            debugPrint(titleInput);
-                            debugPrint(amountInput);
+                            debugPrint(titleController.text);
+                            debugPrint(amountController.text);
                           },
                           textColor: Colors.purple,
                           child: const Text('Add Transaction'))
