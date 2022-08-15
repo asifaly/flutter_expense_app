@@ -20,7 +20,7 @@ class Chart extends StatelessWidget {
       }
       debugPrint("$weekDay - $totalSum");
       return {'day': DateFormat.E().format(weekDay), 'amount': totalSum};
-    });
+    }).reversed.toList();
   }
 
   double get weeklyTotal {
